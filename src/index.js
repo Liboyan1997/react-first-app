@@ -20,7 +20,7 @@ function Square(props){
       let isRed=false
 
       if(this.props.list){
-        if(this.props.list.indexOf(i)!=-1){
+        if(this.props.list.indexOf(i)!==-1){
           isRed=true
           console.log(isRed,i,this.props.list)
         }
@@ -168,7 +168,7 @@ function Square(props){
         const current=history[this.state.stepNumber];
         const winner=calculateWinner(current.squares);
         // console.log(current.squares,this.state.stepNumber)
-        if(this.state.stepNumber==8){
+        if(this.state.stepNumber===8){
           noWinner(current.squares)
         }
         // console.log(typeof(winner))
@@ -197,7 +197,7 @@ function Square(props){
         let status;
         let list
         if(winner){
-          if(winner.length==2){
+          if(winner.length===2){
             status='Winer:'+winner[0];
             list=winner[1].list;
           }else{
@@ -208,6 +208,7 @@ function Square(props){
         }else{
           status='no player win';
         }
+        
       return (
         <div className="game">
           <div className="game-board">
@@ -221,7 +222,7 @@ function Square(props){
             />
           </div>
           <div className="game-info">
-          <button onClick={()=>{this.order()}}>{'点击之后为 '+(this.state.isUp?'降序':'升序')}</button>
+          <button onClick={()=>{this.order()}} style={{color:'pink'}}>{'点击之后为 '+(this.state.isUp?'降序':'升序')}</button>
             <div>{status}</div>
             <ol className={this.state.isUp?'a':'b'}>{moves}</ol>
           </div>
